@@ -1,4 +1,4 @@
-import AnimeCard from "../components/AnimeCard";
+import AnimeCard from "@/components/AnimeCard";
 
 export default async function Page() {
   const data = await fetch("https://api.jikan.moe/v4/top/anime");
