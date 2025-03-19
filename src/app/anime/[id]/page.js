@@ -1,11 +1,14 @@
 import Image from "next/image";
 import { getAnimeById, getAnimeCharactersById } from "@/lib/anime";
+import { sortCharacterByFavorites } from "@/utils/helper";
 
 export default async function Page({ params }) {
   const { id } = await params;
 
   const anime = await getAnimeById(id);
   const characters = await getAnimeCharactersById(id);
+
+  const charactersFiltered = sortCharacterByFavorites(characters, 20);
 
   return (
     <div>
@@ -27,7 +30,7 @@ export default async function Page({ params }) {
         </div>
       </div>
       <div className="flex flex-wrap gap-4">
-        {characters.slice(0, 15).map((character, index) => (
+        {charactersFiltered.map((character, index) => (
           <div key={character.character.mal_id}>
             <p className="max-w-[100px] overflow-hidden whitespace-nowrap text-ellipsis">
               {character.character.name}
