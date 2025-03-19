@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getAnimeById, getAnimeCharactersById } from "@/lib/anime";
+import { getAnimeById, getAnimeCharactersById } from "@/lib/fetcher.anime";
 import { sortCharacterByFavorites } from "@/utils/helper";
 
 export default async function Page({ params }) {

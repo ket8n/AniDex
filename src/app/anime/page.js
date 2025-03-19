@@ -1,5 +1,5 @@
 import AnimeCard from "@/components/AnimeCard";
-import { getTopAnime } from "@/lib/anime";
+import { getTopAnime } from "@/lib/fetcher.anime";
 
 export default async function Page() {
   const animeList = await getTopAnime();
