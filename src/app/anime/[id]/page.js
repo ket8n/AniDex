@@ -1,17 +1,11 @@
 import Image from "next/image";
+import { getAnimeById, getAnimeCharactersById } from "@/lib/anime";
 
 export default async function Page({ params }) {
   const { id } = await params;
 
-  const data = await fetch(`https://api.jikan.moe/v4/anime/${id}`);
-  const dataJSON = await data.json();
-  const anime = dataJSON.data;
-
-  const data_characters = await fetch(
-    `https://api.jikan.moe/v4/anime/${id}/characters`
-  );
-  const data_characters_JSON = await data_characters.json();
-  const characters = data_characters_JSON.data;
+  const anime = await getAnimeById(id);
+  const characters = await getAnimeCharactersById(id);
 
   return (
     <div>
