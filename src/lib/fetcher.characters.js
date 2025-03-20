@@ -17,3 +17,17 @@ export async function getCharacterAnimes(id) {
   const dataJSON = await data.json();
   return dataJSON.data || [];
 }
+
+export async function getCharacterPictures(id) {
+  const data = await fetch(
+    `${BASE_EXTERNAL_API_URL}/characters/${id}/pictures`
+  );
+  const dataJSON = await data.json();
+  return dataJSON.data || [];
+}
+
+export async function getCharacterMangas(id) {
+  const data = await fetch(`${BASE_EXTERNAL_API_URL}/characters/${id}/manga`);
+  const dataJSON = await data.json();
+  return dataJSON.data || [];
+}
