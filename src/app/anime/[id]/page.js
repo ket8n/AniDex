@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getAnimeById, getAnimeCharactersById } from "@/lib/fetcher.anime";
 import { sortCharacterByFavorites } from "@/utils/helper";
+import Link from "next/link";
 
 export default async function Page({ params }) {
   const { id } = await params;
@@ -35,13 +36,15 @@ export default async function Page({ params }) {
             <p className="max-w-[100px] overflow-hidden whitespace-nowrap text-ellipsis">
               {character.character.name}
             </p>
-            <Image
-              src={character.character.images.webp.image_url}
-              width={100}
-              height={50}
-              layout="intrinsic"
-              alt={character.character.name}
-            />
+            <Link href={`/characters/${character.character.mal_id}/info`}>
+              <Image
+                src={character.character.images.webp.image_url}
+                width={100}
+                height={50}
+                layout="intrinsic"
+                alt={character.character.name}
+              />
+            </Link>
           </div>
         ))}
       </div>
