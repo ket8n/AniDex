@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function CharacterCard({ character }) {
   return (
-    <Link href={`/characters/${character.mal_id}`}>
+    <Link href={`/characters/${character.mal_id}/info`}>
       <div className="border-2 w-60 min-h-[30rem] p-3 m-3 cursor-pointer">
         <h3 className="overflow-hidden whitespace-nowrap text-ellipsis">
           {character.name}
